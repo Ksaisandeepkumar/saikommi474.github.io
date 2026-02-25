@@ -4,275 +4,314 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sai Sandeep Kommi | Data Engineer</title>
-  <meta name="description" content="Data Engineer portfolio: ETL/ELT, Airflow, SQL, Python, data modeling, APIs." />
+  <meta name="description" content="Data Engineering portfolio: pipelines, Airflow, SQL, Python, data modeling, and analytics-ready warehouses." />
+
   <style>
-    <style>
-  :root{
-    --bg: #0b1020;
-    --card: rgba(255,255,255,.06);
-    --card2: rgba(255,255,255,.08);
-    --text: rgba(255,255,255,.92);
-    --muted: rgba(255,255,255,.68);
-    --border: rgba(255,255,255,.14);
-    --max: 1040px;
-    --pad: 18px;
-  }
+    :root{
+      --bg:#0b1020; --panel:#0f1730; --card:#121c3a;
+      --text:#e9eefc; --muted:#b6c2e2;
+      --accent:#7c5cff; --accent2:#2dd4bf;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(45,212,191,.20), transparent 55%),
+        linear-gradient(180deg, #070a14, var(--bg));
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:var(--max); margin:0 auto; padding:28px 18px 60px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; position:sticky; top:0; padding:14px 0;
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent2)); box-shadow:0 0 18px rgba(124,92,255,.6)}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .navlinks a{
+      font-size:14px; color:var(--muted);
+      padding:8px 10px; border-radius:999px; border:1px solid transparent;
+    }
+    .navlinks a:hover{border-color:var(--border); color:var(--text); background:rgba(255,255,255,.04)}
 
-  *{ box-sizing:border-box; }
-  body{
-    margin:0;
-    font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
-    background: radial-gradient(1200px 700px at 10% 0%, rgba(78,145,255,.22), transparent 60%),
-                radial-gradient(900px 600px at 90% 10%, rgba(255,118,201,.18), transparent 60%),
-                linear-gradient(180deg, #070a14 0%, #0b1020 40%, #070a14 100%);
-    color: var(--text);
-    line-height: 1.55;
-  }
+    .hero{
+      margin-top:18px;
+      display:grid; gap:18px;
+      grid-template-columns: 1.25fr .75fr;
+    }
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
 
-  a{ color: inherit; text-decoration:none; }
-  a:hover{ text-decoration:underline; }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroLeft{padding:26px 24px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted); font-size:13px;
+      background:rgba(255,255,255,.03);
+    }
+    h1{margin:14px 0 10px; font-size:42px; line-height:1.15}
+    .subtitle{color:var(--muted); font-size:16px; margin:0 0 16px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--text); font-weight:600; font-size:14px;
+    }
+    .btnPrimary{
+      border-color: rgba(124,92,255,.55);
+      background: linear-gradient(135deg, rgba(124,92,255,.35), rgba(45,212,191,.18));
+    }
+    .btn small{color:var(--muted); font-weight:500}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+    .chip{
+      font-size:13px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:6px 10px; border-radius:999px;
+      background:rgba(255,255,255,.02);
+    }
 
-  header, section, footer{
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 28px var(--pad);
-  }
+    .heroRight{padding:18px}
+    .statGrid{
+      display:grid; grid-template-columns:1fr; gap:12px;
+    }
+    .stat{
+      padding:14px; border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(18,28,58,.65);
+    }
+    .stat .label{color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.12em}
+    .stat .value{font-size:18px; font-weight:700; margin-top:6px}
+    .stat .desc{color:var(--muted); font-size:13px; margin-top:6px}
 
-  /* HERO */
-  .hero{
-    padding-top: 48px;
-    padding-bottom: 10px;
-  }
-  .nav{
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    gap: 12px;
-    margin-bottom: 26px;
-  }
-  .brand{
-    display:flex;
-    align-items:center;
-    gap: 10px;
-    font-weight: 700;
-    letter-spacing: .2px;
-  }
-  .dot{
-    width: 10px; height: 10px; border-radius: 999px;
-    background: linear-gradient(135deg, #4e91ff, #ff76c9);
-    box-shadow: 0 0 18px rgba(78,145,255,.55);
-  }
+    .section{margin-top:22px}
+    .section h2{margin:0 0 12px; font-size:20px}
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr} }
 
-  .navlinks{ display:flex; gap: 14px; color: var(--muted); font-size: 14px; }
-  .navlinks a{ padding: 8px 10px; border-radius: 10px; border: 1px solid transparent; }
-  .navlinks a:hover{ border-color: var(--border); text-decoration:none; }
+    .card{
+      padding:16px; border-radius:var(--radius);
+      border:1px solid var(--border);
+      background: rgba(18,28,58,.55);
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+    }
+    .card h3{margin:0 0 6px; font-size:16px}
+    .meta{color:var(--muted); font-size:13px}
+    .card ul{margin:10px 0 0 18px; color:var(--text)}
+    .card li{margin:6px 0}
+    .links{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .linkPill{
+      font-size:13px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:7px 10px; border-radius:999px;
+      background:rgba(255,255,255,.02);
+    }
+    .linkPill:hover{color:var(--text); border-color:rgba(124,92,255,.45)}
+    .twoCol{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    }
+    @media (max-width: 920px){ .twoCol{grid-template-columns:1fr} }
 
-  .heroCard{
-    border: 1px solid var(--border);
-    background: linear-gradient(180deg, var(--card2), var(--card));
-    border-radius: 20px;
-    padding: 22px;
-    box-shadow: 0 18px 40px rgba(0,0,0,.35);
-    position: relative;
-    overflow: hidden;
-  }
-  .heroCard:before{
-    content:"";
-    position:absolute; inset:-2px;
-    background: radial-gradient(600px 200px at 20% 0%, rgba(78,145,255,.25), transparent 60%),
-                radial-gradient(500px 220px at 90% 20%, rgba(255,118,201,.18), transparent 60%);
-    pointer-events:none;
-  }
-  .heroInner{
-    position:relative;
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-       (min-width: 900px){
-    .heroInner{ grid-template-columns: 1.25fr .75fr; align-items:center; }
-  }
-
-  h1{ margin: 0 0 10px; font-size: 40px; letter-spacing: .2px; }
-  .title{ color: var(--muted); margin: 0 0 14px; font-size: 16px; }
-
-  .ctaRow{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 12px; }
-  .btn{
-    display:inline-flex; align-items:center; gap: 8px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.06);
-    color: var(--text);
-    font-weight: 600;
-    font-size: 14px;
-  }
-  .btn.primary{
-    border-color: transparent;
-    background: linear-gradient(135deg, #4e91ff, #7a5cff);
-  }
-  .btn:hover{ text-decoration:none; filter: brightness(1.07); }
-
-  .badges{
-    display:flex; flex-wrap:wrap; gap: 8px; margin-top: 14px;
-  }
-  .pill{
-    display:inline-block;
-    padding: 7px 10px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.05);
-    border-radius: 999px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  /* RIGHT SIDE MINI-CARD */
-  .mini{
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.05);
-    border-radius: 16px;
-    padding: 14px;
-  }
-  .mini h3{ margin: 0 0 6px; font-size: 14px; }
-  .mini p{ margin: 0; color: var(--muted); font-size: 13px; }
-
-  /* SECTIONS */
-  h2{ margin: 0 0 12px; font-size: 20px; }
-  p{ color: var(--muted); }
-  .grid{ display:grid; grid-template-columns: 1fr; gap: 14px; }
-  @media (min-width: 820px){ .grid{ grid-template-columns: 1fr 1fr; } }
-
-  .card{
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.05);
-    border-radius: 16px;
-    padding: 16px;
-  }
-  .muted{ color: var(--muted); font-size: 14px; }
-  ul{ margin: 10px 0 0 18px; color: var(--muted); }
-  code{ background: rgba(255,255,255,.08); padding: 2px 6px; border-radius: 8px; color: var(--text); }
-
-  footer{ color: var(--muted); font-size: 13px; padding-bottom: 48px; }
-</style>
+    .footer{
+      margin-top:26px;
+      color:var(--muted); font-size:13px;
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between;
+      border-top:1px solid var(--border);
+      padding-top:16px;
+    }
+    code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px}
   </style>
 </head>
 
 <body>
-<header>
-  <h1>Sai Sandeep Kommi</h1>
-  <div class="sub">Data Engineer | ETL/ELT | Airflow | SQL | Python | APIs | Data Modeling</div>
-  <div class="toplinks">
-    <a href="mailto:saisandeepkumar38@gmail.com">saisandeepkumar38@gmail.com</a>
-    <a href="https://linkedin.com/in/sai-sandeepkumar" target="_blank" rel="noreferrer">LinkedIn</a>
-    <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noreferrer">GitHub</a>
-  </div>
-
-  <div style="margin-top:18px;">
-    <span class="pill">Airflow DAGs</span>
-    <span class="pill">PostgreSQL</span>
-    <span class="pill">Star/Snowflake Schema</span>
-    <span class="pill">SCD (Type 1/2)</span>
-    <span class="pill">Incremental Loads</span>
-    <span class="pill">REST APIs</span>
-    <span class="pill">Data Quality</span>
-    <span class="pill">Logging & Monitoring</span>
-  </div>
-</header>
-
-<section>
-  <h2>About</h2>
-  <p>
-    I build production-style data pipelines: ingest (CSV/JSON/API), validate, transform, model (star/snowflake),
-    and deliver analytics-ready tables with scheduling, retries, and monitoring. Recent work includes Airflow-orchestrated
-    ETL/ELT using Python + SQL + PostgreSQL, with incremental loads and SCD logic.
-  </p>
-</section>
-
-<section>
-  <h2>Featured Projects (replace placeholders with YOUR real repos)</h2>
-  <div class="grid">
-
-    <div class="card">
-      <h3>1) Airflow ETL Pipeline: API → Staging → Warehouse</h3>
-      <div class="muted">Python, Airflow, PostgreSQL, Data Quality</div>
-      <ul>
-        <li>Orchestrated ingestion from REST API with retries, idempotency, and backfills.</li>
-        <li>Validation layer (schema checks, null thresholds, dedupe).</li>
-        <li>Incremental loads using watermark + upserts.</li>
-      </ul>
-      <p class="muted">
-        Repo: <a href="https://github.com/YOUR_GITHUB/airflow-etl-api" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/airflow-etl-api</a>
-        <br/>Demo: Add screenshots to <code>/assets</code> and link them here.
-      </p>
+  <div class="container">
+    <div class="nav">
+      <div class="brand"><span class="dot"></span> Sai Sandeep Kommi</div>
+      <div class="navlinks">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>2) Dimensional Model: Star Schema + SCD2</h3>
-      <div class="muted">SQL, Data Modeling, SCD, Performance</div>
-      <ul>
-        <li>Designed fact/dim tables with surrogate keys and SCD2 history tracking.</li>
-        <li>Optimized queries with indexing + partitioning strategy (where applicable).</li>
-        <li>Built KPI-ready marts for dashboards.</li>
-      </ul>
-      <p class="muted">
-        Repo: <a href="https://github.com/YOUR_GITHUB/dwh-star-schema-scd" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/dwh-star-schema-scd</a>
-      </p>
+    <div class="hero">
+      <div class="panel heroLeft">
+        <div class="kicker">Data Engineer • ETL/ELT • Airflow • SQL • Python</div>
+        <h1>Production-style pipelines, analytics-ready warehouses.</h1>
+        <p class="subtitle">
+          I build data systems end-to-end: ingestion (API/CSV/JSON), validation, transformations, dimensional modeling (star/snowflake),
+          and scheduled orchestration with retries and monitoring.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="https://saikommi474.github.io" target="_blank" rel="noreferrer">Live Site <small>GitHub Pages</small></a>
+          <a class="btn" href="https://github.com/saikommi474" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="mailto:saikommi474@gmail.com">Email</a>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Airflow DAGs</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Incremental Loads</span>
+          <span class="chip">SCD Type 2</span>
+          <span class="chip">Data Quality</span>
+          <span class="chip">Warehouse Modeling</span>
+        </div>
+      </div>
+
+      <div class="panel heroRight">
+        <div class="statGrid">
+          <div class="stat">
+            <div class="label">Focus</div>
+            <div class="value">Entry-level Data Engineering</div>
+            <div class="desc">Pipelines, modeling, SQL performance, observability.</div>
+          </div>
+          <div class="stat">
+            <div class="label">Stack</div>
+            <div class="value">Python • SQL • Airflow</div>
+            <div class="desc">PostgreSQL, APIs, Docker (optional), testing.</div>
+          </div>
+          <div class="stat">
+            <div class="label">Proof</div>
+            <div class="value">Public repos + screenshots</div>
+            <div class="desc">Recruiters need evidence, not claims.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>3) Data Quality Checks (Great Expectations / custom)</h3>
-      <div class="muted">Python, Testing, Observability</div>
-      <ul>
-        <li>Automated checks: freshness, volume anomalies, referential integrity.</li>
-        <li>Generated data docs + failure alerts.</li>
-      </ul>
-      <p class="muted">
-        Repo: <a href="https://github.com/YOUR_GITHUB/data-quality-suite" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/data-quality-suite</a>
-      </p>
+    <div class="section" id="projects">
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Airflow ETL: API → Staging → Warehouse</h3>
+          <div class="meta">Python, Airflow, PostgreSQL, Idempotent loads</div>
+          <ul>
+            <li>Orchestrates ingestion with retries, backfills, and logging.</li>
+            <li>Validation: schema checks, dedupe, null thresholds.</li>
+            <li>Incremental upserts using a watermark strategy.</li>
+          </ul>
+          <div class="links">
+            <a class="linkPill" href="https://github.com/saikommi474" target="_blank" rel="noreferrer">Repo</a>
+            <a class="linkPill" href="#" onclick="alert('Add screenshots in /assets and link them here.'); return false;">Screenshots</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Dimensional Model: Star Schema + SCD2</h3>
+          <div class="meta">SQL, Data Modeling, Surrogate keys</div>
+          <ul>
+            <li>Fact/dim design with SCD2 history for changing attributes.</li>
+            <li>Query tuning and indexing to reduce latency.</li>
+            <li>KPI-ready marts for dashboards.</li>
+          </ul>
+          <div class="links">
+            <a class="linkPill" href="https://github.com/saikommi474" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Data Quality Suite</h3>
+          <div class="meta">Python, Testing, Freshness & anomaly checks</div>
+          <ul>
+            <li>Checks: freshness, volume, referential integrity.</li>
+            <li>Failure reporting and data docs output.</li>
+          </ul>
+          <div class="links">
+            <a class="linkPill" href="https://github.com/saikommi474" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>ML/Analytics (Optional)</h3>
+          <div class="meta">Keep this optional for DE roles</div>
+          <ul>
+            <li>Only include if it’s clean, measurable, and reproducible.</li>
+            <li>DE recruiters prioritize pipelines + modeling first.</li>
+          </ul>
+          <div class="links">
+            <a class="linkPill" href="https://github.com/saikommi474" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>4) Analytics / ML (Optional): Clustering or YOLOv5</h3>
-      <div class="muted">Python, ML, EDA</div>
-      <ul>
-        <li>Show the business question, dataset, evaluation, and results.</li>
-        <li>Keep it short: recruiters care more about DE projects for DE roles.</li>
-      </ul>
-      <p class="muted">
-        Repo: <a href="https://github.com/YOUR_GITHUB/ml-project" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/ml-project</a>
-      </p>
+    <div class="section" id="experience">
+      <h2>Experience</h2>
+      <div class="twoCol">
+        <div class="card">
+          <h3>ETL Developer Intern — Mainstream Technologies</h3>
+          <div class="meta">May 2024 – Dec 2025</div>
+          <ul>
+            <li>Built ETL workflows using SQL, Python, APIs, and Airflow orchestration.</li>
+            <li>Implemented dimensional schemas and incremental load patterns.</li>
+            <li>Improved warehouse performance through schema + query tuning.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Data Scientist Intern — 1Stop.ai</h3>
+          <div class="meta">Jul 2022 – Dec 2023</div>
+          <ul>
+            <li>Built ML pipelines for clustering/segmentation and computer vision experiments.</li>
+            <li>Worked on ingestion, cleaning, training, and evaluation workflows.</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
+    <div class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="card">
+        <div class="meta">
+          <b>Core:</b> Python, SQL, Airflow, PostgreSQL, REST APIs, ETL/ELT, Data Modeling (Star/Snowflake), SCD, Incremental Loads
+          <br/><b>Nice-to-have:</b> Docker, Spark, AWS, Data quality tooling, CI/CD
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <div class="meta">Email: <a href="mailto:saikommi474@gmail.com">saikommi474@gmail.com</a></div>
+        <div class="meta">GitHub: <a href="https://github.com/saikommi474" target="_blank" rel="noreferrer">github.com/saikommi474</a></div>
+        <div class="meta">LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noreferrer">Add your real LinkedIn URL</a></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="y"></span> Sai Sandeep Kommi</div>
+      <div>Built with <code>HTML</code> + <code>CSS</code> on GitHub Pages</div>
+    </div>
   </div>
-</section>
 
-<section>
-  <h2>Experience</h2>
-  <div class="card">
-    <h3>ETL Developer Intern — Mainstream Technologies <span class="muted">(May 2024 – Dec 2025)</span></h3>
-    <ul>
-      <li>Built scalable ETL workflows using SQL, Python, APIs, and Airflow with dependencies, retries, and monitoring.</li>
-      <li>Implemented star/snowflake schemas and SCD techniques; used incremental load strategies and validation layers.</li>
-      <li>Improved warehouse performance via schema optimization and query tuning.</li>
-    </ul>
-  </div>
-
-  <div class="card" style="margin-top:12px;">
-    <h3>Data Scientist Intern — 1Stop.ai <span class="muted">(Jul 2022 – Dec 2023)</span></h3>
-    <ul>
-      <li>Built ML pipelines: ingestion → cleaning → modeling → evaluation; worked on clustering/segmentation and YOLOv5.</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>Skills</h2>
-  <p><b>Python</b>, <b>SQL</b>, Airflow, PostgreSQL, Pandas, NumPy, REST APIs, Data Modeling, SCD, ETL/ELT, Logging/Monitoring</p>
-</section>
-
-<footer class="muted">
-  Last updated: <span id="d"></span>
-  <script>document.getElementById("d").textContent = new Date().toISOString().slice(0,10);</script>
-</footer>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
