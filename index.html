@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sai Sandeep Kommi | Data Engineer</title>
+  <meta name="description" content="Data Engineer portfolio: ETL/ELT, Airflow, SQL, Python, data modeling, APIs." />
+  <style>
+    :root { --max: 980px; --pad: 18px; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; line-height:1.55; }
+    header, section, footer { max-width: var(--max); margin: 0 auto; padding: 28px var(--pad); }
+    header { padding-top: 44px; }
+    h1 { margin: 0 0 10px; font-size: 34px; }
+    .sub { color:#333; margin: 6px 0 16px; }
+    .pill { display:inline-block; padding:6px 10px; border:1px solid #ddd; border-radius:999px; margin:4px 6px 0 0; font-size: 14px; }
+    .grid { display:grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 820px){ .grid { grid-template-columns: 1fr 1fr; } }
+    .card { border:1px solid #e6e6e6; border-radius: 14px; padding: 16px; }
+    .muted { color:#555; font-size: 14px; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { margin: 10px 0 0 18px; }
+    code { background:#f6f6f6; padding: 2px 6px; border-radius: 8px; }
+    .toplinks a { margin-right: 12px; }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Sai Sandeep Kommi</h1>
+  <div class="sub">Data Engineer | ETL/ELT | Airflow | SQL | Python | APIs | Data Modeling</div>
+  <div class="toplinks">
+    <a href="mailto:saisandeepkumar38@gmail.com">saisandeepkumar38@gmail.com</a>
+    <a href="https://linkedin.com/in/sai-sandeepkumar" target="_blank" rel="noreferrer">LinkedIn</a>
+    <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noreferrer">GitHub</a>
+  </div>
+
+  <div style="margin-top:18px;">
+    <span class="pill">Airflow DAGs</span>
+    <span class="pill">PostgreSQL</span>
+    <span class="pill">Star/Snowflake Schema</span>
+    <span class="pill">SCD (Type 1/2)</span>
+    <span class="pill">Incremental Loads</span>
+    <span class="pill">REST APIs</span>
+    <span class="pill">Data Quality</span>
+    <span class="pill">Logging & Monitoring</span>
+  </div>
+</header>
+
+<section>
+  <h2>About</h2>
+  <p>
+    I build production-style data pipelines: ingest (CSV/JSON/API), validate, transform, model (star/snowflake),
+    and deliver analytics-ready tables with scheduling, retries, and monitoring. Recent work includes Airflow-orchestrated
+    ETL/ELT using Python + SQL + PostgreSQL, with incremental loads and SCD logic.
+  </p>
+</section>
+
+<section>
+  <h2>Featured Projects (replace placeholders with YOUR real repos)</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>1) Airflow ETL Pipeline: API → Staging → Warehouse</h3>
+      <div class="muted">Python, Airflow, PostgreSQL, Data Quality</div>
+      <ul>
+        <li>Orchestrated ingestion from REST API with retries, idempotency, and backfills.</li>
+        <li>Validation layer (schema checks, null thresholds, dedupe).</li>
+        <li>Incremental loads using watermark + upserts.</li>
+      </ul>
+      <p class="muted">
+        Repo: <a href="https://github.com/YOUR_GITHUB/airflow-etl-api" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/airflow-etl-api</a>
+        <br/>Demo: Add screenshots to <code>/assets</code> and link them here.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2) Dimensional Model: Star Schema + SCD2</h3>
+      <div class="muted">SQL, Data Modeling, SCD, Performance</div>
+      <ul>
+        <li>Designed fact/dim tables with surrogate keys and SCD2 history tracking.</li>
+        <li>Optimized queries with indexing + partitioning strategy (where applicable).</li>
+        <li>Built KPI-ready marts for dashboards.</li>
+      </ul>
+      <p class="muted">
+        Repo: <a href="https://github.com/YOUR_GITHUB/dwh-star-schema-scd" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/dwh-star-schema-scd</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3) Data Quality Checks (Great Expectations / custom)</h3>
+      <div class="muted">Python, Testing, Observability</div>
+      <ul>
+        <li>Automated checks: freshness, volume anomalies, referential integrity.</li>
+        <li>Generated data docs + failure alerts.</li>
+      </ul>
+      <p class="muted">
+        Repo: <a href="https://github.com/YOUR_GITHUB/data-quality-suite" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/data-quality-suite</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>4) Analytics / ML (Optional): Clustering or YOLOv5</h3>
+      <div class="muted">Python, ML, EDA</div>
+      <ul>
+        <li>Show the business question, dataset, evaluation, and results.</li>
+        <li>Keep it short: recruiters care more about DE projects for DE roles.</li>
+      </ul>
+      <p class="muted">
+        Repo: <a href="https://github.com/YOUR_GITHUB/ml-project" target="_blank" rel="noreferrer">github.com/YOUR_GITHUB/ml-project</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <div class="card">
+    <h3>ETL Developer Intern — Mainstream Technologies <span class="muted">(May 2024 – Dec 2025)</span></h3>
+    <ul>
+      <li>Built scalable ETL workflows using SQL, Python, APIs, and Airflow with dependencies, retries, and monitoring.</li>
+      <li>Implemented star/snowflake schemas and SCD techniques; used incremental load strategies and validation layers.</li>
+      <li>Improved warehouse performance via schema optimization and query tuning.</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <h3>Data Scientist Intern — 1Stop.ai <span class="muted">(Jul 2022 – Dec 2023)</span></h3>
+    <ul>
+      <li>Built ML pipelines: ingestion → cleaning → modeling → evaluation; worked on clustering/segmentation and YOLOv5.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <p><b>Python</b>, <b>SQL</b>, Airflow, PostgreSQL, Pandas, NumPy, REST APIs, Data Modeling, SCD, ETL/ELT, Logging/Monitoring</p>
+</section>
+
+<footer class="muted">
+  Last updated: <span id="d"></span>
+  <script>document.getElementById("d").textContent = new Date().toISOString().slice(0,10);</script>
+</footer>
+</body>
+</html>
